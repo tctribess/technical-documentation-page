@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Technical document page</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <header>Principais conceitos React</header>
+        <li>
+            <a class="nav-link" href="#Introdução">Introdução</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Introduzindo_Jsx">Introduzindo JSX</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Renderizando_Elementos">Renderizando Elementos</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Componentes_E_Props">Componentes e Props</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#State_E_Ciclo_De_Vida">State e Ciclo de Vida</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Manipulando_Eventos">Manipulando eventos</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Renderização_Condicional">Renderização condicional</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Forms">Forms</a>
+        </li>
+    </nav>
+
+    <main id="main-doc">
+
+        <section class="main-section" id="Introdução">
+            <header>Introdução</header>
+            <article>
+                Uma biblioteca JavaScript para criar interfaces de usuário.
+
+                <p>React faz com que a criação de UIs interativas seja uma tarefa fácil. Crie views simples para cada
+                    estado na sua aplicação, e o React irá atualizar e renderizar de forma eficiente apenas os
+                    componentes necessários na medida em que os dados mudam.</p>
+                <p>Crie componentes encapsulados que gerenciam seu próprio estado e então, combine-os para criar UIs
+                    complexas.
+
+                    Como a lógica do componente é escrita em JavaScript e não em templates, você pode facilmente passar
+                    diversos tipos de dados ao longo da sua aplicação e ainda manter o estado fora do DOM.</p>
+                <p>Não fazemos suposições sobre as outras tecnologias da sua stack, assim você pode desenvolver novos
+                    recursos com React sem reescrever o código existente.
+
+                    O React também pode ser renderizado no servidor, usando Node, e ser usado para criar aplicações
+                    mobile, através do React Native.</p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Introduzindo_Jsx">
+            <header>Introduzindo JSX</header>
+            <p>JSX e é uma extensão de sintaxe para JavaScript. Recomenda-se usar JSX com o React para descrever como a
+                UI deveria parecer. JSX pode lembrar uma linguagem de template, mas que vem com todo o poder do
+                JavaScript.</p>
+            <ul>
+                <li>Incorporando Expressões em JSX</li>
+                <p>No exemplo abaixo, declaramos uma variável chamada name e então a usamos dentro do JSX ao envolvê-la
+                    com chaves:</p>
+                <code>const name = 'Josh Perez';
+        const element = Hello, {name};
+      
+      ReactDOM.render(
+        element,
+        document.getElementById('root')
+      );</code>
+                <p>Você pode inserir qualquer expressão JavaScript válida dentro das chaves em JSX. Por exemplo, 2 + 2,
+                    user.firstName, ou formatName(user) são todas expressões JavaScript válidas.</p>
+                <li>Especificando Atributos com JSX</li>
+                <p>Você pode inserir qualquer expressão JavaScript válida dentro das chaves em JSX. Por exemplo, 2 + 2,
+                    user.firstName, ou formatName(user) são todas expressões JavaScript válidas.</p>
+                <code>const element = tabIndex="0";</code>
+            </ul>
+        </section>
+
+        <section class="main-section" id="Renderizando_Elementos">
+            <header>Renderizando elementos</header>
+            <p>Suponhamos que exista um elemento div em algum lugar do seu código HTML. Nós o chamamos de nó raiz do DOM
+                porque tudo dentro dele será gerenciado pelo React DOM.
+
+                Aplicações construídas apenas com React geralmente tem apenas um único nó raiz no DOM. Se deseja
+                integrar o React a uma aplicação existente, você pode ter quantos nós raiz precisar.
+
+                Para renderizar um elemento React em um nó raiz, passe ambos para <b>ReactDOM.render():</b></p>
+            <code>const element = Hello, world;
+      ReactDOM.render(element, document.getElementById('root'));</code>
+            <p>Chama-se o <b>ReactDOM.render()</b> a cada segundo a partir de um callback do <b>setInterval()</b>.</p>
+        </section>
+
+        <section class="main-section" id="Componentes_E_Props">
+            <header>Componentes e Props</header>
+            <p>Componentes permitem você dividir a UI em partes independentes, reutilizáveis e pensar em cada parte
+                isoladamente. Componentes permitem você dividir a UI em partes independentes, reutilizáveis e pensar em
+                cada parte isoladamente.</p>
+            <ul>
+                <li>Componentes de Função e Classe</li>
+                <P>A maneira mais simples de definir um componente é escrever uma função JavaScript:</P>
+                <code>function Welcome(props) {
+        return Hello, {props.name};
+      }</code>
+                <p>Essa função é um componente React válido porque aceita um único argumento de objeto “props” (que
+                    significa propriedades) com dados e retorna um elemento React. Nós chamamos esses componentes de
+                    “componentes de função” porque são literalmente funções JavaScript.</p>
+                <li>Renderizando um Componente</li>
+                <P>Elementos também podem representar componentes definidos pelo usuário:</P>
+                <code>const element = &lt;Welcome name="Sara"/&gt;</code>
+                <p>Quando o React vê um elemento representando um componente definido pelo usuário, ele passa atributos
+                    JSX e componentes filhos para esse componente como um único objeto. Nós chamamos esse objeto de
+                    “props”.</p>
+            </ul>
+        </section>
+
+        <section class="main-section" id="State_E_Ciclo_De_Vida">
+            <header>State e ciclo de vida</header>
+            <ul>
+                <li>O Ciclo de Vida de um Componente</li>
+                <p>Cada componente possui muitos “métodos do ciclo de vida” que você pode sobrescrever para executar
+                    determinado código em momentos particulares do processo.</p>
+                <li>Atualizando</li>
+                <p>Uma atualização pode ser causada por alterações em props ou no state. Estes métodos são chamados na
+                    seguinte ordem quando um componente esta sendo re-renderizado:</p>
+                <ol>
+                    <li>static getDerivedStateFromProps()</li>
+                    <li>shouldComponentUpdate()</li>
+                    <li>render()</li>
+                    <li>getSnapshotBeforeUpdate()</li>
+                    <li>componentDidUpdate()</li>
+                </ol>
+                <p>A função <b>render()</b> deve ser pura, o que significa que ela não modifica o state. Pois, ela
+                    retorna o mesmo resultado a cada vez que é chamada e isso não interage diretamente com o browser. Se
+                    você precisar interagir com o browser, faça isto no método <b>componentDidMount()</b> ou em outros
+                    métodos do ciclo de vida. Manter <b>render()</b> puro faz com que os componentes sejam fáceis de se
+                    trabalhar.</p>
+            </ul>
+        </section>
+
+        <section class="main-section" id="Manipulando_Eventos">
+            <header>Manipulando Eventos</header>
+            <p>Manipular eventos em elementos React é muito semelhante a manipular eventos em elementos do DOM. Existem
+                algumas diferenças de sintaxe:</p>
+            <ul>
+                <li>Eventos em React são nomeados usando <b>camelCase</b> ao invés de letras minúsculas.</li>
+                <li>Com o JSX você passa uma função como manipulador de eventos ao invés de um texto.</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="Renderização_Condicional">
+            <header>Renderização Condicional</header>
+            <p>Em React, você pode criar componentes distintos que encapsulam o comportamento que você precisa. Então,
+                você pode renderizar apenas alguns dos elementos, dependendo do estado da sua aplicação.
+
+                Renderização condicional em React funciona da mesma forma que condições funcionam em JavaScript. Use
+                operadores de JavaScript como if ou operador condicional para criar elementos representando o estado
+                atual, e deixe o React atualizar a UI para corresponde-los.</p>
+        </section>
+
+        <section class="main-section" id="Forms">
+            <header>Forms</header>
+            <p>Os elementos de formulário HTML funcionam de maneira um pouco diferente de outros elementos DOM no React,
+                porque os elementos de formulário mantêm naturalmente algum estado interno. Por exemplo, este formulário
+                em HTML puro aceita um único nome</p>
+            <p>Em HTML, elementos de formulário como <b>&lt;input></b>, <b>&lt;textarea></b> e <b>&lt;select></b>
+                normalmente mantêm seu próprio estado e o atualiza baseado na entrada do usuário. Em React, o estado
+                mutável é normalmente mantido na propriedade state dos componentes e atualizado apenas com
+                <b>setState()</b>.
+            </p>
+        </section>
+
+    </main>
+</body>
+
+</html>
